@@ -1,0 +1,18 @@
+{
+    "contents" : "# createPhewasTable <-function(id.icd9.count, min.code.count=2,\n#   add.exclusions=T, translate=T, aggregate.fun=sum, id.gender)\n\ncreate_phewas_table <- function(id.icd9.count){\n  createPhewasTable(id.icd9.count)\n}\n",
+    "created" : 1455821517373.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "695223119",
+    "id" : "C667CE0E",
+    "lastKnownWriteTime" : 1455152606,
+    "path" : "~/RadPheWAS/R/createtable.R",
+    "project_path" : "R/createtable.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

@@ -1,0 +1,18 @@
+{
+    "contents" : "gen_example <- function(n=50,phenotypes.per=10,hit=c(\"335\",\"764\")) {\n  #print(hit)\n  phewas_code=unique(phemap$phewas_code)\n  #Exclude the code to add\n  #phewas_code=phewas_code[phewas_code!=hit]\n  phewas_code=phewas_code[!(phewas_code %in% hit)]\n  #Assign individuals random phenotypes\n  random=data.frame(id=rep.int(1:n,phenotypes.per),phewas_code=\"\",count=0)\n  random$phewas_code=sample(phewas_code,nrow(random),replace=TRUE)\n\n  for (item in hit){\n    #Create the signal\n    #signal=as.data.frame(MASS::mvrnorm(n=n,mu=c(0,0),Sigma=rbind(c(.5,.1),c(.1,1)))) # original\n    #signal=as.data.frame(MASS::mvrnorm(n=n,mu=c(0,0),Sigma=rbind(c(.25,.1),c(.1,1)))) # stronger signal\n    signal=as.data.frame(MASS::mvrnorm(n=n,mu=c(0,0),Sigma=rbind(c(.25,.1),c(.1,0.75)))) # even stronger, but not enough\n    signal=as.data.frame(MASS::mvrnorm(n=n,mu=c(0,0),Sigma=rbind(c((.5/length(hit)),.1),c(.1,(1/length(hit))))))\n    names(signal)=c(\"phenotype\",\"rsEXAMPLE\")\n    #Normalize the phenotype to logical and the genotype to 0,1,2.\n    signal$phenotype=signal$phenotype>.25\n    #View(signal)\n    signal$rsEXAMPLE=signal$rsEXAMPLE+abs(min(signal$rsEXAMPLE))\n    signal$rsEXAMPLE=floor(signal$rsEXAMPLE*2.99/max(signal$rsEXAMPLE))\n    signal$id=1:n\n    signal$count=0\n    signal$phewas_code=item\n    if (!exists(\"sig\")){\n      sig <- signal\n    } else {\n      sig = rbind(sig, signal)\n    }\n    #print(signal)\n    #print(cor(signal$phenotype,signal$rsEXAMPLE))\n    #View(signal)\n    random=rbind(random,signal[signal$phenotype,c(\"id\",\"phewas_code\",\"count\")])\n  }\n\n  random=merge(random,phemap)\n  random$count= rpois(nrow(random),4)\n  #random[random$phewas_code==hit,]$count=random[random$phewas_code==hit,]$count+2\n  random[random$phewas_code %in% hit,]$count=random[random$phewas_code %in% hit,]$count+2\n  #print(random[random$phewas_code %in% hit,])\n  return(list(id.icd9.count=random[,c(\"id\",\"icd9\",\"count\")],genotypes=sig[,c(\"id\",\"rsEXAMPLE\")]))\n}\n",
+    "created" : 1455747400193.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2583649283",
+    "id" : "7220F493",
+    "lastKnownWriteTime" : 1455820305,
+    "path" : "~/RadPheWAS/R/gen_example.R",
+    "project_path" : "R/gen_example.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : true,
+    "type" : "r_source"
+}

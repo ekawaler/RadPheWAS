@@ -1,0 +1,18 @@
+{
+    "contents" : "# generateExample <- function(n=50,phenotypes.per=10,hit=\"335\")\n\n# Can I not overload functions in R? I'm not sure I can change the parameter names without\n# changing the function name, otherwise\ngenerate_example <- function(number_of_patients=5, phenotypes_per_patient=5, code_to_enhance=c(\"427.8\")){\n  gen_example(n=number_of_patients, phenotypes.per=phenotypes_per_patient,\n                          hit=code_to_enhance)\n}\n",
+    "created" : 1455748398554.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4273129182",
+    "id" : "7CBDFE44",
+    "lastKnownWriteTime" : 1455749041,
+    "path" : "~/RadPheWAS/R/genex.R",
+    "project_path" : "R/genex.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
