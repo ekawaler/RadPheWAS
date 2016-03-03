@@ -21,5 +21,5 @@
 #           y.axis.interval=5)
 
 phewas_manhattan <- function(results){
-  phewasManhattan(results, annotate.angle=0, title="Yeahh")
+  phewasManhattan(results, annotate.angle=0, title=results$snp)
 }

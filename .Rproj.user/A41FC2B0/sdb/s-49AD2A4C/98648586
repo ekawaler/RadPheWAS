@@ -1,0 +1,18 @@
+{
+    "contents" : "library(methods)\nsetClass(\"testclasschar\",representation(a=\"character\"))\nsetClass(\"testclassvec\",representation(b=\"vector\"))\nsetClass(\"testclassboth\",contains=c(\"testclasschar\",\"testclassvec\"))\nx <- new(\"testclassboth\",b=c(1,2,3))\n\nsetClass(\"listOrSingle\")\nsetIs(\"vector\",\"listOrSingle\")\nsetIs(\"character\",\"listOrSingle\")\nsetClass(\"los\",representation(c=\"listOrSingle\"))",
+    "created" : 1456951916147.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "514240805",
+    "id" : "98648586",
+    "lastKnownWriteTime" : 4706093824,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

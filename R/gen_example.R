@@ -1,3 +1,5 @@
+#Overloading via S3/S4
+
 gen_example <- function(n=50,phenotypes.per=10,hit=c("335","764")) {
   #print(hit)
   phewas_code=unique(phemap$phewas_code)
@@ -12,7 +14,7 @@ gen_example <- function(n=50,phenotypes.per=10,hit=c("335","764")) {
     #Create the signal
     #signal=as.data.frame(MASS::mvrnorm(n=n,mu=c(0,0),Sigma=rbind(c(.5,.1),c(.1,1)))) # original
     #signal=as.data.frame(MASS::mvrnorm(n=n,mu=c(0,0),Sigma=rbind(c(.25,.1),c(.1,1)))) # stronger signal
-    signal=as.data.frame(MASS::mvrnorm(n=n,mu=c(0,0),Sigma=rbind(c(.25,.1),c(.1,0.75)))) # even stronger, but not enough
+    #signal=as.data.frame(MASS::mvrnorm(n=n,mu=c(0,0),Sigma=rbind(c(.25,.1),c(.1,0.75)))) # even stronger, but not enough
     signal=as.data.frame(MASS::mvrnorm(n=n,mu=c(0,0),Sigma=rbind(c((.5/length(hit)),.1),c(.1,(1/length(hit))))))
     names(signal)=c("phenotype","rsEXAMPLE")
     #Normalize the phenotype to logical and the genotype to 0,1,2.
